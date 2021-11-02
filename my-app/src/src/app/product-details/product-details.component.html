@@ -6,7 +6,9 @@
   </h3>
   <!-- "currency" here will produce a dollar symbol, the usage here is called pipe -->
   <h4>{{ product.price | currency }}</h4>
-  <p>{{ product.description }}</p>
-</div>
+  <p *ngIf="product.description" class="cart-item">
+    {{ product.description }}
+  </p>
 
-<p>Testing Part</p>
+  <button (click)="addToCart(product)">Buy</button>
+</div>

@@ -3,7 +3,11 @@
 <div *ngFor="let product of products">
   <h3>
     <!-- 插值 {{ }} 可以讓你把屬性值渲染為文字 -->
-    <a [title]="product.name + ' details'" [routerLink]="['/products',product.id]">
+    <a
+      [title]="product.name + ' details'"
+      [routerLink]="['/products', product.id]"
+    >
+      <!-- if id==1  ==>  [routerLink]="'/products/1'" -->
       {{ product.name }}
     </a>
   </h3>

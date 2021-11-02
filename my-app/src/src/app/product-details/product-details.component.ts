@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product, products } from '../products';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -9,7 +10,15 @@ import { Product, products } from '../products';
 })
 export class ProductDetailsComponent implements OnInit {
   product!: Product;
-  constructor(private route: ActivatedRoute) {} //注入要用的、每個元件都有的 物件
+  constructor(
+    private route: ActivatedRoute,
+    private cartService: CartService
+  ) {} //注入要用的、每個元件都有的 物件
+
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+    window.alert('Your product has been added to the cart!');
+  }
 
   ngOnInit() {
     // First get the product id from the current route.
