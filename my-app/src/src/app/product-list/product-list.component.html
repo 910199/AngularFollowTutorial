@@ -1,0 +1,26 @@
+<h2>Products</h2>
+
+<div *ngFor="let product of products">
+  <h3>
+    <!-- 插值 {{ }} 可以讓你把屬性值渲染為文字 -->
+    <a [title]="product.name + ' details'" [routerLink]="['/products',product.id]">
+      {{ product.name }}
+    </a>
+  </h3>
+
+  <p *ngIf="product.description">Description: {{ product.description }}</p>
+  <!-- 最後一項產品的 description 屬性為空，Angular 不會建立 <p> 元素。 -->
+
+  <button (click)="share()">Share</button>
+
+  <!-- 把notify當成一個event，因為這個event是被傳遞過來的 -->
+  <app-product-alerts [product]="product" (notify)="Notify()">
+  </app-product-alerts>
+  <app-product-alerts> </app-product-alerts>
+</div>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->

@@ -1,0 +1,15 @@
+<!-- !錯誤 : 因為 product這個物件不存在，無法存取物件內的property -->
+<!-- <p *ngIf="product.price > 600">
+  <button>Notify Me</button>
+</p> -->
+
+<!-- !正確 : 因為 有先判斷product這個物件存不存在，才存取物件內的property -->
+<p *ngIf="product && product.price > 600">
+  <button (click)="notify.emit()">Notify Me</button>
+</p>
+
+<!-- <p *ngIf="product">{{product.price}}</p>    -->
+
+<!-- <p>
+  <button>test</button>
+</p> -->
